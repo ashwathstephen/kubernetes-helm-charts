@@ -1,0 +1,80 @@
+# CronJob chart values
+
+# Schedule in Cron format
+schedule: "0 * * * *"
+
+# Job configuration
+concurrencyPolicy: Forbid
+failedJobsHistoryLimit: 3
+successfulJobsHistoryLimit: 3
+startingDeadlineSeconds: 100
+suspend: false
+
+# Pod configuration
+restartPolicy: OnFailure
+backoffLimit: 3
+activeDeadlineSeconds: 600
+ttlSecondsAfterFinished: 86400
+
+image:
+  repository: busybox
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+# Command and args
+command: []
+args: []
+
+# Environment variables
+env: []
+
+envFrom: []
+
+# Resources
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+# Security context
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+
+podSecurityContext:
+  fsGroup: 1000
+
+# Volumes
+volumes: []
+volumeMounts: []
+
+# Node selector
+nodeSelector: {}
+
+# Tolerations
+tolerations: []
+
+# Affinity
+affinity: {}
+
+# Service account
+serviceAccount:
+  create: false
+  name: ""
+  annotations: {}
+
+# Annotations
+podAnnotations: {}
+
