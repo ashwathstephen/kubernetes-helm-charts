@@ -90,16 +90,8 @@ nodeSelector: {}
 # Tolerations
 tolerations: []
 
-# Affinity
-affinity:
-  podAntiAffinity:
-    preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100
-        podAffinityTerm:
-          labelSelector:
-            matchLabels:
-              app.kubernetes.io/name: "{{ .Release.Name }}"
-          topologyKey: kubernetes.io/hostname
+# Affinity - configured in statefulset.yaml template
+affinity: {}
 
 # Service account
 serviceAccount:
