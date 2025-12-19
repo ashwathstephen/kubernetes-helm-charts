@@ -212,4 +212,3 @@ networkPolicy:
 
 # Extra labels for all resources
 extraLabels: {}
-

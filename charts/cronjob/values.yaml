@@ -77,4 +77,3 @@ serviceAccount:
 
 # Annotations
 podAnnotations: {}
-
